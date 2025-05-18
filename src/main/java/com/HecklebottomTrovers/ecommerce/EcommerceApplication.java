@@ -16,6 +16,13 @@ public class EcommerceApplication {
         return args -> {
             repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
             repo.save(new Product(null, "Headphones", 59.99, "Noise-cancelling headphones"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
+            repo.save(new Product(null, "Laptop", 999.99, "High-performance laptop"));
         };
     }
 }

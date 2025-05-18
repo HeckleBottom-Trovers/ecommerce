@@ -1,0 +1,96 @@
+/* login-styles.css */
+
+/* ================================
+   Base Styling
+================================== */
+
+/* Apply Verdana font and set base font size */
+body {
+  font-family: verdana;
+  font-size: 16px;
+}
+
+/* ================================
+   Headings
+================================== */
+
+/* Center the main page heading */
+h1 {
+  text-align: center;
+}
+
+/* ================================
+   Messages
+================================== */
+
+/* Red error message for invalid login */
+.error-message {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Styled message shown on logout */
+.logout-message {
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ================================
+   Form Layout
+================================== */
+
+/* Center login form and set fixed width */
+.login-form {
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Use grid layout for form rows */
+.form-row {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* Label on left, input on right */
+  gap: 10px; /* Space between label and input */
+  margin-bottom: 15px;
+  align-items: center; /* Vertically center items */
+}
+
+/* Align labels to the right within form rows */
+.form-row label {
+  text-align: right;
+}
+
+/* Style for input fields in form */
+.form-row input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* ================================
+   Submit Button
+================================== */
+
+/* Style the login button */
+.submit-btn {
+  grid-column: 2; /* Align button with input fields */
+  padding: 8px 15px;
+  background: #0066cc; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ================================
+   Image Styling
+================================== */
+
+/* Center Isaac's image on the page */
+.isaac-image {
+  display: block; /* Needed for margin auto to apply */
+  margin: 0 auto; /* Center the image horizontally */
+}

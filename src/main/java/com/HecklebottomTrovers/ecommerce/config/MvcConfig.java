@@ -9,7 +9,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("redirect:/products"); // Redirect root to /products.
-        registry.addViewController("/products").setViewName("products"); // Map /products to the products view.
+        registry.addViewController("/products").setViewName("products-view"); // Map /products to the products-view.
         registry.addViewController("/login").setViewName("login"); // Map /login to the login view.
     }
 }

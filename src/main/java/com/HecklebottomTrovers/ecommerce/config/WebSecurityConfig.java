@@ -18,8 +18,9 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                // Allow public access to root, CSS files, and image files.
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/").permitAll()  // Allow unauthenticated access to the root URL.
+                        .requestMatchers("/", "/css/**", "/images/**").permitAll()
                         .anyRequest().authenticated()  // Require authentication for all other requests.
                 )
                 .formLogin((form) -> form
