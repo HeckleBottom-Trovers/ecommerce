@@ -52,19 +52,16 @@ input {
   box-sizing: border-box;
 }
 
-/* Wrapper for any password field */
 .password-wrapper {
   position: relative;
   width: 300px;
 }
 
-/* make room inside for the eye icons */
 .password-wrapper input {
   width: 100%;
   padding-right: 40px;
 }
 
-/* eye toggle button */
 .toggle-btn {
   position: absolute;
   top: 50%;
@@ -77,13 +74,35 @@ input {
   padding: 0;
 }
 
-/* ensure both SVG icons match */
 .eye-icon {
   width: 20px;
   height: 20px;
 }
 
-/* submit button */
+/* password requirements list */
+.password-requirements {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  width: 300px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.password-requirements li {
+  margin: 4px 0;
+}
+
+/* red when invalid, green when valid */
+.password-requirements li.invalid {
+  color: red;
+}
+
+.password-requirements li.valid {
+  color: green;
+}
+
+/* submit button styling */
 button[type="submit"] {
   padding: 12px 24px;
   font-size: 16px;
