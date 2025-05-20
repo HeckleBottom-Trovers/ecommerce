@@ -16,21 +16,21 @@ public class WebSecurityConfig {
 
     // Configures HTTP security settings for the application.
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                // Allow public access to root, CSS files, and image files.
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/css/**", "/images/**").permitAll()
-                        .anyRequest().authenticated()  // Require authentication for all other requests.
-                )
-                .formLogin((form) -> form
-                        .loginPage("/login")  // Custom login page.
-                        .permitAll()  // Allow everyone to access the login page.
-                )
-                .logout((logout) -> logout.permitAll());  // Allow everyone to log out.
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/", "/signup", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+            .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+            .loginPage("/login")
+            .permitAll()
+        )
+        .logout(logout -> logout.permitAll());
 
-        return http.build();
-    }
+    return http.build();
+}
+
 
     // Creates an in-memory user details service with a sample user.
     @Bean

@@ -94,3 +94,7 @@ h1 {
   display: block; /* Needed for margin auto to apply */
   margin: 0 auto; /* Center the image horizontally */
 }
+.rice-image{
+  display: block;
+  margin: 0 auto;
+}
