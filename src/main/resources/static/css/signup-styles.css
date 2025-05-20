@@ -1,0 +1,122 @@
+/* signup-styles.css */
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input {
+    padding: 8px;
+    width: 220px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.rice-image {
+    margin-top: 30px;
+    width: 100px;
+}
+.password-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.password-toggle input {
+    flex: 1;
+    max-width: 250px;
+}
+
+.password-toggle button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+/* General form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+form input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
+}
+
+/* Password input with button aligned to the right */
+.password-wrapper {
+    display: flex;
+    justify-content: center;  /* center content (input + button) horizontally */
+    gap: 10px;                 /* space between input and button */
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;            /* center the wrapper itself */
+}
+
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 70px; /* space for the button */
+}
+
+.toggle-btn {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
