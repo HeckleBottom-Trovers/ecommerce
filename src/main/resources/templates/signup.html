@@ -1,54 +1,165 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sign-Up to be a Trover!</title>
-    <link rel="stylesheet" th:href="@{/css/signup-styles.css}">
+  <meta charset="utf-8">
+  <title>Sign-Up to be a Trover!</title>
+  <link rel="stylesheet" th:href="@{/css/signup-styles.css}">
 </head>
 <body>
 
-    <div class="form-container">
-        <h1>Create a new Account</h1>
-        <p class="subheading">It's fast and simple</p>
+  <div class="form-container">
+    <h1>Create a new Account</h1>
+    <p class="subheading">It's fast and simple</p>
 
-        <form th:action="@{/signup}" method="post">
-            <div>
-                <label for="username">Enter new user:</label><br>
-                <input type="text" id="username" name="username" required>
-            </div>
+    <form th:action="@{/signup}" method="post">
 
-            <div>
-                <label for="password">Enter new password:</label><br>
-                <div class="password-wrapper">
-                <input type="password" id="password" name="password" required>
-                <button type="button" class="toggle-btn" onclick="togglePassword()">Show</button>
-                </div>
-            </div>
+      <div class="form-group">
+        <label for="username">Enter a username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
 
-            <div>
-                <label for="confirmPassword">Confirm new password:</label><br>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-            </div>
+      <div class="form-group">
+        <label for="password">Enter a password:</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" required>
+          <button
+            type="button"
+            class="toggle-btn"
+            onclick="togglePassword()"
+            aria-label="Toggle password visibility"
+          >
+            <!-- Open eye -->
+            <svg
+              id="eyeOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="eye-icon"
+            >
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path d="M2.458 12C3.732 7.943 7.523 5 12 5
+                       c4.478 0 8.268 2.943 9.542 7
+                       -1.274 4.057-5.064 7-9.542 7
+                       -4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <!-- Closed eye -->
+            <svg
+              id="eyeClosed"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="eye-icon"
+              style="display:none;"
+            >
+              <path d="M13.875 18.825C12.679 19.094 11.361 19.094 10.165 18.825
+                       C5.515 16.732 2 12 2 12
+                       C3.271 8.703 6.482 6.104 10.165 6.109
+                       C11.362 5.91 12.68 5.91 13.876 6.109
+                       C17.558 6.104 20.769 8.703 22.04 12
+                       C21.917 13.49 21.417 14.865 20.604 16.068"/>
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path d="M3 3l18 18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-            <div>
-                <button type="submit">Sign Up</button>
-            </div>
-        </form>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password:</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+          <button
+            type="button"
+            class="toggle-btn"
+            onclick="toggleConfirmPassword()"
+            aria-label="Toggle confirm-password visibility"
+          >
+            <!-- Open eye -->
+            <svg
+              id="eyeConfirmOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="eye-icon"
+            >
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path d="M2.458 12C3.732 7.943 7.523 5 12 5
+                       c4.478 0 8.268 2.943 9.542 7
+                       -1.274 4.057-5.064 7-9.542 7
+                       -4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+            <!-- Closed eye -->
+            <svg
+              id="eyeConfirmClosed"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="eye-icon"
+              style="display:none;"
+            >
+              <path d="M13.875 18.825C12.679 19.094 11.361 19.094 10.165 18.825
+                       C5.515 16.732 2 12 2 12
+                       C3.271 8.703 6.482 6.104 10.165 6.109
+                       C11.362 5.91 12.68 5.91 13.876 6.109
+                       C17.558 6.104 20.769 8.703 22.04 12
+                       C21.917 13.49 21.417 14.865 20.604 16.068"/>
+              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path d="M3 3l18 18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-    </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
 
-    <script>
-        function togglePassword() {
-            const passwordField = document.getElementById("password");
-            const toggleBtn = passwordField.nextElementSibling;
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleBtn.textContent = "Hide";
-            } else {
-                passwordField.type = "password";
-                toggleBtn.textContent = "Show";
-            }
-        }
-    </script>
+  <script>
+    function togglePassword() {
+      const pw = document.getElementById("password");
+      const openEye = document.getElementById("eyeOpen");
+      const closedEye = document.getElementById("eyeClosed");
+      if (pw.type === "password") {
+        pw.type = "text";
+        openEye.style.display = "none";
+        closedEye.style.display = "block";
+      } else {
+        pw.type = "password";
+        openEye.style.display = "block";
+        closedEye.style.display = "none";
+      }
+    }
+    function toggleConfirmPassword() {
+      const pw = document.getElementById("confirmPassword");
+      const openEye = document.getElementById("eyeConfirmOpen");
+      const closedEye = document.getElementById("eyeConfirmClosed");
+      if (pw.type === "password") {
+        pw.type = "text";
+        openEye.style.display = "none";
+        closedEye.style.display = "block";
+      } else {
+        pw.type = "password";
+        openEye.style.display = "block";
+        closedEye.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
