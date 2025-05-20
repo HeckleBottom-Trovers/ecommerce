@@ -98,3 +98,36 @@ h1 {
   display: block;
   margin: 0 auto;
 }
+
+/* ================================
+   Sign-Up Button – match Sign-In
+=================================== */
+
+.signup-row {
+  display: grid;
+  grid-template-columns: 100px 1fr; /* label width + content */
+  gap: 10px;
+  width: 300px;            /* same width as .login-form */
+  margin: 15px auto;       /* center under the Sign-In form */
+  align-items: center;
+}
+
+.signup-row div {
+  /* empty placeholder for the label column */
+}
+
+.signup-row .signup-btn {
+  grid-column: 2;          /* put button in second column */
+  width: 100%;             /* fill exactly that column */
+  padding: 8px 15px;       /* same as .submit-btn */
+  background: #28a745;     /* green */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.signup-row .signup-btn:hover {
+  background: #218838;     /* darker green on hover */
+}
