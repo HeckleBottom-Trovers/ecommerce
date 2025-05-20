@@ -1,5 +1,4 @@
-/* signup-styles.css */
-
+/* ===== Global & Header ===== */
 body {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -7,44 +6,44 @@ body {
   margin: 0;
   padding: 0;
 }
-
 h1 {
-  font-size: 32px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
-
 .subheading {
+  margin: 0 0 15px;
   font-size: 14px;
-  margin-top: -10px;
 }
 
+/* ===== Card Container ===== */
 .form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding-top: 40px;
+  width: 340px;           /* 300px inputs + 40px padding */
+  margin: 0 auto 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* ===== Form & Fields ===== */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 25px;
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-
 label {
   font-weight: bold;
   margin-bottom: 8px;
   width: 100%;
   text-align: center;
 }
-
 input {
   width: 300px;
   padding: 10px;
@@ -52,16 +51,14 @@ input {
   box-sizing: border-box;
 }
 
+/* ===== Password Toggle & Icons ===== */
 .password-wrapper {
   position: relative;
   width: 300px;
 }
-
 .password-wrapper input {
-  width: 100%;
   padding-right: 40px;
 }
-
 .toggle-btn {
   position: absolute;
   top: 50%;
@@ -73,13 +70,12 @@ input {
   color: #007bff;
   padding: 0;
 }
-
 .eye-icon {
   width: 20px;
   height: 20px;
 }
 
-/* password requirements list */
+/* ===== Requirements Checklist ===== */
 .password-requirements {
   list-style: none;
   padding-left: 0;
@@ -88,22 +84,18 @@ input {
   text-align: left;
   font-size: 13px;
 }
-
 .password-requirements li {
   margin: 4px 0;
 }
-
-/* red when invalid, green when valid */
 .password-requirements li.invalid {
   color: red;
 }
-
 .password-requirements li.valid {
   color: green;
 }
 
-/* submit button styling */
-button[type="submit"] {
+/* ===== Submit Button ===== */
+.submit-btn {
   padding: 12px 24px;
   font-size: 16px;
   background-color: #007bff;
@@ -112,3 +104,4 @@ button[type="submit"] {
   border-radius: 6px;
   cursor: pointer;
 }
+

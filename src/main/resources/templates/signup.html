@@ -7,39 +7,40 @@
 </head>
 <body>
 
-  <div class="form-container">
-    <h1>Create a new Account</h1>
-    <p class="subheading">It's fast and simple</p>
+  <!-- Header -->
+  <h1>Create a new Account</h1>
+  <p class="subheading">It's fast and simple</p>
 
+  <!-- Card container -->
+  <div class="form-container">
     <form th:action="@{/signup}" method="post">
 
+      <!-- Username -->
       <div class="form-group">
         <label for="username">Enter a username:</label>
         <input type="text" id="username" name="username" required>
       </div>
 
+      <!-- Password + requirements -->
       <div class="form-group">
         <label for="password">Enter a password:</label>
         <div class="password-wrapper">
           <input type="password" id="password" name="password" required>
-          <button
-            type="button"
-            class="toggle-btn"
-            onclick="togglePassword()"
-            aria-label="Toggle password visibility"
-          >
+          <button type="button" class="toggle-btn" onclick="togglePassword()" aria-label="Toggle password visibility">
+            <!-- Open eye -->
             <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="eye-icon">
+                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="eye-icon">
               <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
               <path d="M2.458 12C3.732 7.943 7.523 5 12 5
                        c4.478 0 8.268 2.943 9.542 7
                        -1.274 4.057-5.064 7-9.542 7
                        -4.477 0-8.268-2.943-9.542-7z"/>
             </svg>
+            <!-- Closed eye -->
             <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="eye-icon" style="display:none;">
+                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="eye-icon" style="display:none;">
               <path d="M13.875 18.825C12.679 19.094 11.361 19.094 10.165 18.825
                        C5.515 16.732 2 12 2 12
                        C3.271 8.703 6.482 6.104 10.165 6.109
@@ -52,7 +53,6 @@
           </button>
         </div>
 
-        <!-- Password requirements checklist -->
         <ul class="password-requirements">
           <li id="req-number" class="invalid">* Password must contain a number</li>
           <li id="req-special" class="invalid">* Password must contain a special character</li>
@@ -60,28 +60,26 @@
         </ul>
       </div>
 
+      <!-- Confirm password -->
       <div class="form-group">
         <label for="confirmPassword">Confirm password:</label>
         <div class="password-wrapper">
           <input type="password" id="confirmPassword" name="confirmPassword" required>
-          <button
-            type="button"
-            class="toggle-btn"
-            onclick="toggleConfirmPassword()"
-            aria-label="Toggle confirm-password visibility"
-          >
+          <button type="button" class="toggle-btn" onclick="toggleConfirmPassword()" aria-label="Toggle confirm-password visibility">
+            <!-- Open eye -->
             <svg id="eyeConfirmOpen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="eye-icon">
+                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="eye-icon">
               <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
               <path d="M2.458 12C3.732 7.943 7.523 5 12 5
                        c4.478 0 8.268 2.943 9.542 7
                        -1.274 4.057-5.064 7-9.542 7
                        -4.477 0-8.268-2.943-9.542-7z"/>
             </svg>
+            <!-- Closed eye -->
             <svg id="eyeConfirmClosed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round"
-                 stroke-linejoin="round" class="eye-icon" style="display:none;">
+                 stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="eye-icon" style="display:none;">
               <path d="M13.875 18.825C12.679 19.094 11.361 19.094 10.165 18.825
                        C5.515 16.732 2 12 2 12
                        C3.271 8.703 6.482 6.104 10.165 6.109
@@ -95,12 +93,12 @@
         </div>
       </div>
 
-      <button type="submit">Sign Up</button>
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Sign Up</button>
     </form>
   </div>
 
   <script>
-    // toggle main password visibility
     function togglePassword() {
       const pw = document.getElementById("password");
       const openEye = document.getElementById("eyeOpen");
@@ -115,8 +113,6 @@
         closedEye.style.display = "none";
       }
     }
-
-    // toggle confirm-password visibility
     function toggleConfirmPassword() {
       const pw = document.getElementById("confirmPassword");
       const openEye = document.getElementById("eyeConfirmOpen");
@@ -131,19 +127,11 @@
         closedEye.style.display = "none";
       }
     }
-
-    // validate password requirements on every keystroke
     document.getElementById("password").addEventListener("input", function() {
       const val = this.value;
-      // contains number?
-      document.getElementById("req-number")
-        .className = /\d/.test(val) ? "valid" : "invalid";
-      // contains special character?
-      document.getElementById("req-special")
-        .className = /[!@#$%^&*(),.?":{}|<>]/.test(val) ? "valid" : "invalid";
-      // at least 8 chars?
-      document.getElementById("req-length")
-        .className = val.length >= 8 ? "valid" : "invalid";
+      document.getElementById("req-number").className = /\d/.test(val) ? "valid" : "invalid";
+      document.getElementById("req-special").className = /[!@#$%^&*(),.?":{}|<>]/.test(val) ? "valid" : "invalid";
+      document.getElementById("req-length").className = val.length >= 8 ? "valid" : "invalid";
     });
   </script>
 
