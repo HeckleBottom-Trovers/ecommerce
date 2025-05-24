@@ -95,6 +95,9 @@
 
       <!-- Submit -->
       <button type="submit" class="submit-btn">Sign Up</button>
+
+      <!-- Password Confirmation Error -->
+       <div th:if="${error}" th:text="${error}" style="color: red;"></div>
     </form>
   </div>
 

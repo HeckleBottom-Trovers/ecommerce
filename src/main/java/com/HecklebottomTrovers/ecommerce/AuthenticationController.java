@@ -1,6 +1,9 @@
 package com.HecklebottomTrovers.ecommerce;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +11,17 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class AuthenticationController {
 
+    private final SecurityFilterChain securityFilterChain;
+
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    AuthenticationController(SecurityFilterChain securityFilterChain) {
+        this.securityFilterChain = securityFilterChain;
+    }
 
     @GetMapping("/signup")
     public String showSignupPage(Model model) {
@@ -18,12 +30,21 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    public String registerUser(@RequestParam String username, @RequestParam String password) {
+    public String registerUser(Model model, @RequestParam String username, @RequestParam String password, @RequestParam String confirmPassword) {
         User user = new User();
         user.setUsername(username);
-        // Will need to implement password encoder for security purposes
-        // Then figure out how to decode the password from the database
-        user.setPassword(password);
+
+        // Check password confirmation
+        if(!password.equals(confirmPassword)) {
+            System.out.println("passwords don't match!!!");
+            model.addAttribute("error", "Passwords don't match! Please try again.");
+            return "signup";
+        }
+
+        // Encrypt password
+        user.setPassword(passwordEncoder.encode(password));
+
+        // Save user
         userRepository.save(user);
 
         return "redirect:/login";
