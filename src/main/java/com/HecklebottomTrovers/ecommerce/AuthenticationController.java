@@ -36,10 +36,17 @@ public class AuthenticationController {
 
         // Check password confirmation
         if(!password.equals(confirmPassword)) {
+            // Check password requirements
             System.out.println("passwords don't match!!!");
-            model.addAttribute("error", "Passwords don't match! Please try again.");
+            model.addAttribute("matchingPasswordError", "Passwords don't match! Please try again.");
+            return "signup";
+        } else if (password.length() < 8 || !password.matches(".*\\d.*") || !password.matches(".*[!@#$%^&*(),.?\":{}|<>].*")) {
+            System.out.println("passwords don't meet requirements!!!");
+            model.addAttribute("passwordRequirementError", "Passwords must meet requirements!");
             return "signup";
         }
+
+
 
         // Encrypt password
         user.setPassword(passwordEncoder.encode(password));
