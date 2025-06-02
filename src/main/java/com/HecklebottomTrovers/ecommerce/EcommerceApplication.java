@@ -26,6 +26,15 @@ public class EcommerceApplication {
 				userRepository.save(admin);
 				System.out.println("Admin account created.");
 			}
+
+			if (!userRepository.existsByUsername("user")) {
+				User defaultUser = new User();
+				defaultUser.setUsername("user");
+				defaultUser.setPassword(passwordEncoder.encode("password"));
+				defaultUser.setRole("USER");
+				userRepository.save(defaultUser);
+				System.out.println("Default user account created.");
+			}
 		};
 	}
 }

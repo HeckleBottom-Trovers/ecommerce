@@ -27,6 +27,9 @@
             <li><a href="#">Categories</a></li>
             <li><a href="#">Deals</a></li>
             <li><a href="#">Account</a></li>
+            <li th:if="${#authentication?.name == 'admin'}">
+                <button style="background-color: lightgreen; color: black; font-weight: bold; margin-top: 5px;">Manage Products</button>
+            </li>
         </ul>
     </div>
 </div>
@@ -39,8 +42,12 @@
 
         <div class="product-description" th:text="${product.description}"></div>
 
-        <button class="add-to-cart">Add to Cart</button>
+        <form th:action="@{/cart/add}" method="post">
+            <input type="hidden" name="productId" th:value="${product.id}" />
+            <button type="submit">Add to Cart</button>
+        </form>
     </div>
 </div>
+
 </body>
 </html>
