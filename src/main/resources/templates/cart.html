@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" th:href="@{/css/main-products-page-styles.css}" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .btn-continue {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-continue:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <p class="empty-cart-message">You don't have anything in your cart yet.</p>
+        <div style="text-align: center;">
+            <a class="btn-continue" href="/products">Continue Shopping</a>
+        </div>
+    </div>
+</body>
+</html>
