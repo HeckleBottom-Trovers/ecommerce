@@ -1,7 +1,9 @@
 package com.HecklebottomTrovers.ecommerce;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class Product {
@@ -33,7 +35,13 @@ public class Product {
         this.description = description;
     }
     
-    public Product() {} // Required by JPA
-    
+    // Required by JPA
+    public Product() {}
+
+    public Product(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }
 
