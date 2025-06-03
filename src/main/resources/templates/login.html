@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Spring Security Example </title>
+  <meta charset="utf-8">
+  <title>Welcome to the Hecklebottom Trovers E-Commerce Store!</title>
+  <link rel="stylesheet" th:href="@{/css/login-styles.css}">
 </head>
 <body>
-<div th:if="${param.error}">
-  Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-  You have been logged out.
-</div>
-<form th:action="@{/login}" method="post">
-  <div><label> User Name : <input type="text" name="username"/> </label></div>
-  <div><label> Password: <input type="password" name="password"/> </label></div>
-  <div><input type="submit" value="Sign In"/></div>
-</form>
+
+  <h1>Welcome to the Hecklebottom Trovers E-Commerce Store!</h1>
+
+  <form th:action="@{/login}" method="post" class="login-form">
+    <div class="error-message" th:if="${param.error}">
+      Invalid username or password.
+    </div>
+    <div class="logout-message" th:if="${param.logout}">
+      You have been logged out.
+    </div>
+
+    <div class="form-row">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="form-row">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <div class="form-row">
+      <input type="submit" value="Sign In" class="submit-btn">
+    </div>
+  </form>
+
+  <!-- Sign Up sits in the same grid under Sign In -->
+  <div class="signup-row">
+    <!-- empty cell to align under the label column -->
+    <div></div>
+    <a th:href="@{/signup}">
+      <button type="button" class="signup-btn">Sign Up</button>
+    </a>
+  </div>
+
+  <img th:src="@{/images/Isaac.png}" alt="Team Mascot" class="isaac-image">
+
 </body>
 </html>
