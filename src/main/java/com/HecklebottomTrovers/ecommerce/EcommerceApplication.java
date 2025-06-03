@@ -42,11 +42,11 @@ public class EcommerceApplication {
 	public CommandLineRunner loadSampleProducts(ProductRepository productRepository) {
 		return args -> {
 			productRepository.deleteAll();
-			productRepository.save(new Product("Gaming Laptop", "High-performance laptop for gaming", 1299.99));
-			productRepository.save(new Product("Wireless Mouse", "Ergonomic mouse with long battery life", 29.99));
-			productRepository.save(new Product("Organic Cotton T-Shirt", "Soft, breathable cotton shirt", 19.99));
-			productRepository.save(new Product("Java Programming Book", "Comprehensive guide to Java programming", 39.99));
-				
+			productRepository.save(new Product(1L, "Gaming Laptop", "High-performance laptop for gaming", 1299.99));
+			productRepository.save(new Product(2L, "Wireless Mouse", "Ergonomic mouse with long battery life", 29.99));
+			productRepository.save(new Product(3L, "Organic Cotton T-Shirt", "Soft, breathable cotton shirt", 19.99));
+			productRepository.save(new Product(4L, "Java Programming Book", "Comprehensive guide to Java programming", 39.99));
+			
 		};
 	};
 }
