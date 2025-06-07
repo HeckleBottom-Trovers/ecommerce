@@ -39,6 +39,9 @@ public class EcommerceApplication {
 		};
 	}
 
+
+	// Commented this out for now in order to implement admin adding products -- khiem
+	/*
 	@Bean
 	public CommandLineRunner loadSampleProducts(ProductRepository productRepository) {
 		return args -> {
@@ -50,5 +53,6 @@ public class EcommerceApplication {
 			
 		};
 	};
+	*/
 }
 

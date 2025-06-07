@@ -30,6 +30,7 @@ public class ProductController {
 
         if (products.isEmpty()) {
             Product test = new Product();
+            test.setName("The GPU");
             test.setDescription("Test GPU");
             test.setPrice(199.99);
             productRepository.save(test);
