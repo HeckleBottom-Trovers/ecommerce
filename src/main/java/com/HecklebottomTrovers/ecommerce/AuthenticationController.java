@@ -46,7 +46,8 @@ public class AuthenticationController {
             return "signup";
         }
 
-
+        // Assign USER role
+        user.setRole("ROLE_USER");
 
         // Encrypt password
         user.setPassword(passwordEncoder.encode(password));

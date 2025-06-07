@@ -23,6 +23,7 @@ public class EcommerceApplication {
 				User admin = new User();
 				admin.setUsername("admin");
 				admin.setPassword(passwordEncoder.encode("adminpass"));
+				admin.setRole("ROLE_ADMIN");
 				userRepository.save(admin);
 				System.out.println("Admin account created.");
 			}
@@ -31,7 +32,7 @@ public class EcommerceApplication {
 				User defaultUser = new User();
 				defaultUser.setUsername("user");
 				defaultUser.setPassword(passwordEncoder.encode("password"));
-				defaultUser.setRole("USER");
+				defaultUser.setRole("ROLE_USER");
 				userRepository.save(defaultUser);
 				System.out.println("Default user account created.");
 			}
