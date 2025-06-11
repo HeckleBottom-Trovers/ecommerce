@@ -20,22 +20,18 @@
 </div>
 
 <div class="side-menu">
-    
     <h2>Menu</h2>
     <ul>
         <li><a href="#">All Products</a></li>
         <li><a href="#">Categories</a></li>
         <li><a href="#">Deals</a></li>
         <li><a href="#">Account</a></li>
-
-        <!-- ADMIN ONLY ACCESS -->
         <li th:if="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')}">
             <a href="/admin/manage">
                 <button type="button">Manage Products</button>
             </a>
         </li>
     </ul>
-
 </div>
 
 <div class="product-grid">
@@ -46,8 +42,7 @@
 
         <div class="product-description" th:text="${product.description}"></div>
 
-        <form th:action="@{/cart/add}" method="post">
-            <input type="hidden" name="productId" th:value="${product.id}" />
+        <form th:action="@{'/cart/add/' + ${product.id}}" method="post">
             <button type="submit">Add to Cart</button>
         </form>
     </div>

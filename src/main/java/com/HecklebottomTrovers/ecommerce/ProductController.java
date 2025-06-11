@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.HecklebottomTrovers.ecommerce.security.CustomUserDetails;
 
-
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,8 +24,6 @@ public class ProductController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println("Logged in authorities: " + auth.getAuthorities());
 
-        System.out.println("[DEBUG] Accessing /products");
-
         List<Product> products = productRepository.findAll();
 
         if (products.isEmpty()) {
@@ -35,30 +33,33 @@ public class ProductController {
             test.setPrice(199.99);
             productRepository.save(test);
             products = productRepository.findAll();
-            System.out.println("[DEBUG] Fallback test product inserted");
         }
 
         model.addAttribute("products", products);
         return "products-view";
     }
 
-    @GetMapping("/manage")
-    public String manageProducts(Model model, Authentication authentication) {
-        System.out.println("[DEBUG] Accessing /manage");
-
-        if (authentication != null && authentication.getPrincipal() instanceof CustomUserDetails) {
-            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            if ("ADMIN".equals(userDetails.getRole())) {
-                model.addAttribute("products", productRepository.findAll());
-                return "manage-products";
+    @PostMapping("/cart/add/{id}")
+    public String addToCart(@PathVariable Long id, HttpSession session) {
+        Product product = productRepository.findById(id).orElse(null);
+        if (product != null) {
+            List<Product> cart = (List<Product>) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new ArrayList<>();
             }
+            cart.add(product);
+            session.setAttribute("cart", cart);
         }
         return "redirect:/products";
     }
 
-    // ✅ Cart route placeholder
     @GetMapping("/cart")
-    public String viewCart() {
+    public String viewCart(HttpSession session, Model model) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<>();
+        }
+        model.addAttribute("cart", cart);
         return "cart";
     }
 }
