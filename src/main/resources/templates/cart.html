@@ -12,28 +12,56 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
         }
+
         .cart-item {
             border-bottom: 1px solid #ddd;
             padding: 10px 0;
         }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
+
         .item-title {
             font-size: 18px;
             font-weight: bold;
         }
+
         .item-desc {
             color: #555;
         }
+
         .item-price {
             color: #0077cc;
         }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.1s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
         .remove-button {
-            margin-top: 5px;
+            background-color: #dc2626;
+        }
+
+        .remove-button:hover {
+            background-color: #b91c1c;
         }
     </style>
 </head>
@@ -42,7 +70,7 @@
     <h1>Your Cart</h1>
     <div th:if="${#lists.isEmpty(cart)}">
         <p>You don't have anything in your cart yet.</p>
-        <a href="/products">Continue Shopping</a>
+        <a href="/products" class="button">⬅️ Continue Shopping</a>
     </div>
     <div th:unless="${#lists.isEmpty(cart)}">
         <div th:each="product, iterStat : ${cart}" class="cart-item">
@@ -50,7 +78,7 @@
             <div class="item-desc" th:text="${product.description}"></div>
             <div class="item-price" th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2)}"></div>
             <form th:action="@{'/cart/remove/' + ${iterStat.index}}" method="post">
-                <button type="submit" class="remove-button">Remove</button>
+                <button type="submit" class="button remove-button">🗑️ Remove</button>
             </form>
         </div>
     </div>

@@ -3,16 +3,38 @@
 <head>
     <title>Spend more. Smile less.</title>
     <link rel="stylesheet" th:href="@{/css/main-products-page-styles.css}">
+    <style>
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.25s ease, transform 0.1s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
 <body>
 <h1>Available Products</h1>
 
 <form th:action="@{/cart}" method="get" class="view-cart">
-    <button type="submit">View your Cart</button>
+    <button type="submit" class="button">🛍️ View Cart</button>
 </form>
 
 <form th:action="@{/logout}" method="post" class="sign-out">
-    <button type="submit">Sign Out</button>
+    <button type="submit" class="button">🚪 Sign Out</button>
 </form>
 
 <div class="top-bar">
@@ -28,7 +50,7 @@
         <li><a href="#">Account</a></li>
         <li th:if="${#authorization.expression('hasAuthority(''ROLE_ADMIN'')')}">
             <a href="/admin/manage">
-                <button type="button">Manage Products</button>
+                <button type="button" class="button">⚙️ Manage Products</button>
             </a>
         </li>
     </ul>
@@ -43,7 +65,7 @@
         <div class="product-description" th:text="${product.description}"></div>
 
         <form th:action="@{'/cart/add/' + ${product.id}}" method="post">
-            <button type="submit">Add to Cart</button>
+            <button type="submit" class="button">🛒 Add to Cart</button>
         </form>
     </div>
 </div>
