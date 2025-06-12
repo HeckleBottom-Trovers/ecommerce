@@ -32,6 +32,9 @@
         .item-price {
             color: #0077cc;
         }
+        .remove-button {
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -42,10 +45,13 @@
         <a href="/products">Continue Shopping</a>
     </div>
     <div th:unless="${#lists.isEmpty(cart)}">
-        <div th:each="product : ${cart}" class="cart-item">
+        <div th:each="product, iterStat : ${cart}" class="cart-item">
             <div class="item-title" th:text="${product.name}"></div>
             <div class="item-desc" th:text="${product.description}"></div>
             <div class="item-price" th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2)}"></div>
+            <form th:action="@{'/cart/remove/' + ${iterStat.index}}" method="post">
+                <button type="submit" class="remove-button">Remove</button>
+            </form>
         </div>
     </div>
 </div>

@@ -62,5 +62,14 @@ public class ProductController {
         model.addAttribute("cart", cart);
         return "cart";
     }
-}
 
+    @PostMapping("/cart/remove/{index}")
+    public String removeFromCart(@PathVariable int index, HttpSession session) {
+        List<Product> cart = (List<Product>) session.getAttribute("cart");
+        if (cart != null && index >= 0 && index < cart.size()) {
+            cart.remove(index);
+            session.setAttribute("cart", cart);
+        }
+        return "redirect:/cart";
+    }
+}
