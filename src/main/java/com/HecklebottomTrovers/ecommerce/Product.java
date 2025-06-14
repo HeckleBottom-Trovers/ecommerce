@@ -15,6 +15,16 @@ public class Product {
     private String name;
     private String description;
     private Double price;
+    private String imageFilePath;
+
+    // For image
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+
+    public void setImageFilePath(String imageFilePath) {
+        this.imageFilePath = imageFilePath;
+    }
 
     // Getters and Setters
     public Long getId() { 
