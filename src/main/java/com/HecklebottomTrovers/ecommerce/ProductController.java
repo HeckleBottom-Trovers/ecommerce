@@ -26,14 +26,20 @@ public class ProductController {
 
         List<Product> products = productRepository.findAll();
 
+        // Generate 20 placeholder products
         if (products.isEmpty()) {
-            Product test = new Product();
-            test.setName("The GPU");
-            test.setDescription("Test GPU");
-            test.setPrice(199.99);
-            productRepository.save(test);
+            for (int i = 1; i <= 20; i++) {
+                Product product = new Product();
+                product.setName("The GPU - Model " + (char) ('A' + i - 1));
+                product.setDescription("Test GPU " + (char) ('A' + i - 1) + " with high-performance capabilities.");
+                product.setPrice(149.99 + (i * 25)); // Prices range from 174.99 to 649.99
+                productRepository.save(product);
+            }
+
             products = productRepository.findAll();
         }
+
+
 
         model.addAttribute("products", products);
         return "products-view";
