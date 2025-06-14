@@ -1,9 +1,7 @@
 package com.HecklebottomTrovers.ecommerce;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class AuthenticationController {
 
-    private final SecurityFilterChain securityFilterChain;
-
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    AuthenticationController(SecurityFilterChain securityFilterChain) {
-        this.securityFilterChain = securityFilterChain;
-    }
 
     @GetMapping("/signup")
     public String showSignupPage(Model model) {
