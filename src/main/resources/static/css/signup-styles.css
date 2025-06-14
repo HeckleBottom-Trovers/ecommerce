@@ -3,6 +3,11 @@ body {
   text-align: center;
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
+  background-image: url(/images/OuterSpacePhoto.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
 }

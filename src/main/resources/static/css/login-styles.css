@@ -1,133 +1,113 @@
-/* login-styles.css */
-
-/* ================================
-   Base Styling
-================================== */
-
-/* Apply Verdana font and set base font size */
+/* Base page setup */
 body {
-  font-family: verdana;
+  font-family: Verdana, sans-serif;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  position: relative;
+  min-height: 100vh;
 }
 
-/* ================================
-   Headings
-================================== */
+/* Decorative rectangle */
+.right-rectangle {
+  position: absolute;
+  width: 778px;
+  height: 1024px;
+  left: 662px;
+  top: 0;
+  background: rgba(229, 229, 229, 0.41);
+  border-radius: 0px 0px 0px 100px;
+  z-index: 0;
+}
 
-/* Center the main page heading */
+/* Page wrapper */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  text-align: center;
+}
+
+/* Headings */
 h1 {
-  text-align: center;
-}
-
-/* ================================
-   Messages
-================================== */
-
-/* Red error message for invalid login */
-.error-message {
-  color: red;
-  font-size: 20px;
+  color: #1a1a1a;
   margin-bottom: 30px;
-  text-align: center;
 }
 
-/* Styled message shown on logout */
-.logout-message {
-  font-size: 20px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* ================================
-   Form Layout
-================================== */
-
-/* Center login form and set fixed width */
+/* Form layout */
 .login-form {
   width: 300px;
-  margin: 0 auto;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Use grid layout for form rows */
 .form-row {
   display: grid;
-  grid-template-columns: 100px 1fr; /* Label on left, input on right */
-  gap: 10px; /* Space between label and input */
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
   margin-bottom: 15px;
-  align-items: center; /* Vertically center items */
+  align-items: center;
 }
 
-/* Align labels to the right within form rows */
 .form-row label {
   text-align: right;
+  color: #333;
 }
 
-/* Style for input fields in form */
 .form-row input {
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
 }
 
-/* ================================
-   Submit Button
-================================== */
-
-/* Style the login button */
+/* Buttons */
 .submit-btn {
-  grid-column: 2; /* Align button with input fields */
-  padding: 8px 15px;
-  background: #0066cc; /* Blue background */
-  color: white;
+  grid-column: 2;
+  padding: 10px 15px;
+  background-color: #4f46e5;
+  color: rgb(186, 39, 39);
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-/* ================================
-   Image Styling
-================================== */
-
-/* Center Isaac's image on the page */
-.isaac-image {
-  display: block; /* Needed for margin auto to apply */
-  margin: 0 auto; /* Center the image horizontally */
-}
-.rice-image{
-  display: block;
-  margin: 0 auto;
-}
-
-/* ================================
-   Sign-Up Button – match Sign-In
-=================================== */
-
+/* Sign-up button row */
 .signup-row {
   display: grid;
-  grid-template-columns: 100px 1fr; /* label width + content */
+  grid-template-columns: 100px 1fr;
   gap: 10px;
-  width: 300px;            /* same width as .login-form */
-  margin: 15px auto;       /* center under the Sign-In form */
+  width: 300px;
+  margin: 15px auto;
   align-items: center;
 }
 
-.signup-row div {
-  /* empty placeholder for the label column */
-}
-
 .signup-row .signup-btn {
-  grid-column: 2;          /* put button in second column */
-  width: 100%;             /* fill exactly that column */
-  padding: 8px 15px;       /* same as .submit-btn */
-  background: #28a745;     /* green */
-  color: white;
-  border: none;
+  grid-column: 2;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: white;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
   border-radius: 4px;
   cursor: pointer;
-  text-align: center;
 }
 
 .signup-row .signup-btn:hover {
-  background: #218838;     /* darker green on hover */
+  background-color: #f0f0ff;
 }
+
+/* Messages */
+.error-message, .logout-message {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: red;
+}
+
