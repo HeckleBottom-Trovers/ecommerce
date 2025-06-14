@@ -1,4 +1,4 @@
-<style>
+/* Login Page Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -130,4 +130,3 @@ input[type="password"] {
   width: 100%;
   height: auto;
 }
-</style>
