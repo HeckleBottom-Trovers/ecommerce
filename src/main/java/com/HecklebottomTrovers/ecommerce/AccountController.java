@@ -36,6 +36,7 @@ public class AccountController {
             userRepository.save(user);
         }
 
-        return "redirect:/products";
+        return "redirect:/login";
+
     }
 }
