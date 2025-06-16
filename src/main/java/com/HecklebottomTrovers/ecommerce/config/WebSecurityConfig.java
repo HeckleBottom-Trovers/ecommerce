@@ -6,15 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 
 // Importing custom class from project files
@@ -29,23 +23,23 @@ public class WebSecurityConfig {
 
     // Configures HTTP security settings for the application.
     @Bean
-        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http
-        .userDetailsService(customUserDetailsService)
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/", "/signup", "/login", "/css/**", "/js/**", "/images/**").permitAll()
-            .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")   // for admin account only
-            .anyRequest().authenticated()
-        )
-        .formLogin(form -> form
-            .loginPage("/login")
-            .defaultSuccessUrl("/products", true)
-            .permitAll()
-        )
-        .logout(logout -> logout.permitAll());
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .userDetailsService(customUserDetailsService)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/signup", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")   // for admin account only
+                        .anyRequest().authenticated()
+                )
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/products", true)
+                        .permitAll()
+                )
+                .logout(logout -> logout.permitAll());
 
-    return http.build();
-}
+        return http.build();
+    }
 
 
     @Bean

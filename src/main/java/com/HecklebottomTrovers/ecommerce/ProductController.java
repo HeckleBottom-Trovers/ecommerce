@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpSession;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +39,6 @@ public class ProductController {
 
             products = productRepository.findAll();
         }
-
-
 
         model.addAttribute("products", products);
         return "products-view";

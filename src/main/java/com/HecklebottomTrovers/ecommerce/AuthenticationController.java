@@ -27,7 +27,7 @@ public class AuthenticationController {
         user.setUsername(username);
 
         // Check password confirmation
-        if(!password.equals(confirmPassword)) {
+        if (!password.equals(confirmPassword)) {
             // Check password requirements
             System.out.println("passwords don't match!!!");
             model.addAttribute("matchingPasswordError", "Passwords don't match! Please try again.");

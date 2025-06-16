@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    
+
     private final ProductRepository productRepository;
 
     public AdminController(ProductRepository productRepository) {
@@ -41,7 +41,7 @@ public class AdminController {
 
         // Setting the new Product's image file path (image name)
         product.setImageFilePath(productImageFile.getOriginalFilename());
-        
+
         productRepository.save(product);
         return "redirect:/admin/manage";
     }

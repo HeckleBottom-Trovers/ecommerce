@@ -1,4 +1,5 @@
 package com.HecklebottomTrovers.ecommerce;
+
 import jakarta.persistence.*;
 
 @Entity

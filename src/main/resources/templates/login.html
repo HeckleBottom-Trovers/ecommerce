@@ -2,60 +2,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeckleBottom Trovers Store</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HeckleBottom Trovers Store</title>
 </head>
 
-<link rel="stylesheet" th:href="@{/css/login-styles.css}" />
+<link rel="stylesheet" th:href="@{/css/login-styles.css}"/>
 <body>
-  <div class="left">
+<div class="left">
     <div class="logo"></div>
     <h1>HeckleBottom Trovers Store</h1>
     <p>Welcome back! Please login to your account.</p>
     <form th:action="@{/login}" method="post" class="login-form">
-      <div class="error-message" th:if="${param.error}">
-        Invalid username or password.
-      </div>
-      <div class="logout-message" th:if="${param.logout}">
-        You have been logged out.
-      </div>
+        <div class="error-message" th:if="${param.error}">
+            Invalid username or password.
+        </div>
+        <div class="logout-message" th:if="${param.logout}">
+            You have been logged out.
+        </div>
 
-      <div class="form-row">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-      </div>
+        <div class="form-row">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
 
-      <div class="form-row">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
+        <div class="form-row">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
 
-      <div class="form-row">
-        <input type="submit" value="Sign In" class="btn-signup">
-      </div>
+        <div class="form-row">
+            <input type="submit" value="Sign In" class="btn-signup">
+        </div>
     </form>
 
     <div class="signup-row">
-      <!-- empty cell to align under the label column -->
-      <div></div>
-      <a th:href="@{/signup}">
-        <button type="button" class="btn-signup">Sign Up</button>
-      </a>
+        <!-- empty cell to align under the label column -->
+        <div></div>
+        <a th:href="@{/signup}">
+            <button type="button" class="btn-signup">Sign Up</button>
+        </a>
     </div>
 
-    
-  </div>
-  <div class="right">
+
+</div>
+<div class="right">
     <div class="nav">
-      <a href="#" class="active">Home</a>
-      <a href="#">About us</a>
-      <a href="#">Blog</a>
-      <a href="#">Pricing</a>
+        <a href="#" class="active">Home</a>
+        <a href="#">About us</a>
+        <a href="#">Blog</a>
+        <a href="#">Pricing</a>
     </div>
     <div class="image-container">
-      <img src="/images/doraemon.jpg" alt="Illustration" />
-    </div>    
-  </div>
+        <img src="/images/doraemon.jpg" alt="Illustration"/>
+    </div>
+</div>
 </body>
 </html>
