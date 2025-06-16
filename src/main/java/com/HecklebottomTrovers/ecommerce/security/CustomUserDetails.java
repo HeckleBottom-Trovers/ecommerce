@@ -2,21 +2,32 @@ package com.HecklebottomTrovers.ecommerce.security;
 
 import com.HecklebottomTrovers.ecommerce.User;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 import java.util.Collections;
-
+import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
-    private User user;
+
+    private final User user;
 
     public CustomUserDetails(User user) {
         this.user = user;
     }
 
+    public String getRole() {
+        return user.getRole();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList(); // Currently our users do not have any getAuthorities
+        return List.of(new SimpleGrantedAuthority(user.getRole()));
     }
 
     @Override
@@ -29,7 +40,6 @@ public class CustomUserDetails implements UserDetails {
         return user.getUsername();
     }
 
-    // The following methods make all accounts valid (for now, we can customize this later)
     @Override
     public boolean isAccountNonExpired() {
         return true;

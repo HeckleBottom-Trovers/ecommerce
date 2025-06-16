@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Account Settings</title>
+  <link rel="stylesheet" th:href="@{/css/signup-styles.css}">
+</head>
+<body>
+
+  <!-- Header -->
+  <h1>Update Your Account</h1>
+  <p class="subheading">Change your username and password</p>
+
+  <!-- Card container -->
+  <div class="form-container">
+    <form th:action="@{/account/update}" method="post">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="newUsername">New Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-group">
+        <button type="submit" class="submit-btn">Update Account</button>
+      </div>
+
+    </form>
+    <p class="subtext" th:text="'Current username: ' + ${currentUsername}"></p>
+  </div>
+
+</body>
+</html>

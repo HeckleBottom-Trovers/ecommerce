@@ -34,6 +34,7 @@ public class WebSecurityConfig {
         .userDetailsService(customUserDetailsService)
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/", "/signup", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+            .requestMatchers("/admin/**").hasAuthority("ROLE_ADMIN")   // for admin account only
             .anyRequest().authenticated()
         )
         .formLogin(form -> form

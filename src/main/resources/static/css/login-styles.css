@@ -1,133 +1,132 @@
-/* login-styles.css */
-
-/* ================================
-   Base Styling
-================================== */
-
-/* Apply Verdana font and set base font size */
+/* Login Page Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 body {
-  font-family: verdana;
-  font-size: 16px;
+  display: flex;
+  height: 100vh;
 }
-
-/* ================================
-   Headings
-================================== */
-
-/* Center the main page heading */
-h1 {
-  text-align: center;
+.left {
+  flex: 1;
+  background: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-/* ================================
-   Messages
-================================== */
-
-/* Red error message for invalid login */
-.error-message {
-  color: red;
-  font-size: 20px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* Styled message shown on logout */
-.logout-message {
-  font-size: 20px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* ================================
-   Form Layout
-================================== */
-
-/* Center login form and set fixed width */
-.login-form {
-  width: 300px;
-  margin: 0 auto;
-}
-
-/* Use grid layout for form rows */
-.form-row {
-  display: grid;
-  grid-template-columns: 100px 1fr; /* Label on left, input on right */
-  gap: 10px; /* Space between label and input */
-  margin-bottom: 15px;
-  align-items: center; /* Vertically center items */
-}
-
-/* Align labels to the right within form rows */
-.form-row label {
-  text-align: right;
-}
-
-/* Style for input fields in form */
-.form-row input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100%;
-}
-
-/* ================================
-   Submit Button
-================================== */
-
-/* Style the login button */
-.submit-btn {
-  grid-column: 2; /* Align button with input fields */
-  padding: 8px 15px;
-  background: #0066cc; /* Blue background */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* ================================
-   Image Styling
-================================== */
-
-/* Center Isaac's image on the page */
-.isaac-image {
-  display: block; /* Needed for margin auto to apply */
-  margin: 0 auto; /* Center the image horizontally */
-}
-.rice-image{
-  display: block;
-  margin: 0 auto;
-}
-
-/* ================================
-   Sign-Up Button – match Sign-In
-=================================== */
-
-.signup-row {
-  display: grid;
-  grid-template-columns: 100px 1fr; /* label width + content */
-  gap: 10px;
-  width: 300px;            /* same width as .login-form */
-  margin: 15px auto;       /* center under the Sign-In form */
+.right {
+  flex: 1;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
-
-.signup-row div {
-  /* empty placeholder for the label column */
+.nav {
+  display: flex;
+  gap: 30px;
+  font-size: 16px;
+  margin-top: 40px;
 }
-
-.signup-row .signup-btn {
-  grid-column: 2;          /* put button in second column */
-  width: 100%;             /* fill exactly that column */
-  padding: 8px 15px;       /* same as .submit-btn */
-  background: #28a745;     /* green */
+.nav a {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+}
+.nav a.active {
+  color: #333;
+  border-color: #4f46e5;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4f46e5;
+  margin-bottom: 40px;
+}
+h1 {
+  font-size: 28px;
+  color: #4f46e5;
+  margin-bottom: 12px;
+}
+p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 24px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-weight: bold;
+  color: #6b21a8;
+  margin-bottom: 8px;
+}
+input[type="text"],
+input[type="password"] {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-left: 4px solid #4f46e5;
+}
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.btn-login {
+  background-color: #3b5bff;
   color: white;
+  padding: 12px 28px;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  text-align: center;
+  transition: background-color 0.2s ease;
 }
 
-.signup-row .signup-btn:hover {
-  background: #218838;     /* darker green on hover */
+.btn-login:hover {
+  background-color: #2f49d6;
+}
+
+.btn-signup {
+  background: white;
+  color: #3b5bff;
+  padding: 12px 28px;
+  border: 1.5px solid #3b5bff;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-signup:hover {
+  background-color: #e6ecff;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  margin-top: -8px;
+}
+.image-container {
+  max-width: 80%;
+  margin-top: 60px;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
 }

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Management</title>
+    <!--Put CSS styling in here later -->
+</head>
+
+<body>
+
+    <h1>Manage Products</h1>
+    <a th:href="@{/products}">
+        ⬅ Back to Products
+    </a>
+
+
+    <!-- List of Products -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Loop through Product objects retrieved by ProductRepository from database -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}">N/A</td>
+                <td th:text="${product.name}">NAME_ERROR</td>
+                <td th:text="${product.description}">NO DESC</td>
+                <td th:text="${product.price}">-1</td>
+                <td>
+                    <!-- Deleting Products -->
+                    <form th:action="@{/admin/delete}" method="post">
+                        <input type="hidden" name="id" th:value="${product.id}"/>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Adding Products-->
+    <h2>Add Product</h2>
+    <form th:action="@{/admin/add}" th:object="${newProduct}" method="post" enctype="multipart/form-data">
+        <label>Name: </label>
+        <input type="text" th:field="*{name}" required/>
+        <br/>
+
+        <label>Description: </label>
+        <input type="text" th:field="*{description}" required/>
+        <br/>
+
+        <label>Price: </label>
+        <input type="text" th:field="*{price}" required/>
+        <br/>
+
+        <label>Image: </label>
+        <input type="file" name="productImageFile" accept="image/*" required/>
+        <br/>
+
+        <button type="submit">Add</button>
+    </form>
+</body>
+
+
+
+</html>
